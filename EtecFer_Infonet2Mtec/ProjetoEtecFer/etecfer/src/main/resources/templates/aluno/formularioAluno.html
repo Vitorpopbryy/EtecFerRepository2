@@ -10,31 +10,36 @@
 
     <h1 style="text-align: center;"> Cadastrar aluno </h1>
 
-    <form th:action="@{/alunos/salvar}" method="post" th:object="$(aluno)">
-        <input type="hidden" th:field="*{idAluno}"/>
+    <form th:action="@{/alunos/salvar}" method="post" th:object="${aluno}">
+
+        <input type="hidden" th:field="*{idAluno}" />
+        <br>
+
+        <label>Nome:</label>
+        <input type="text" th:field="*{nomeAluno}" />
         <br>
 
         <label>E-mail:</label>
-        <input type="text" th:field="*{emailAluno}"/>
+        <input type="text" th:field="*{emailAluno}" />
         <br>
-    </form>
-
-    <label>Telefone:</label>
-        <input type="text" th:field="*{telefoneAluno}"/>
-        <br>
-    </form>
     
-        <input type="text" th:field="*{raAluno}"/>
-        <br>
-    </form>
 
-    <label>CPF:</label>
-        <input type="text" th:field="*{cpfAluno}"/>
+        <label>Telefone:</label>
+        <input type="text" th:field="*{telefoneAluno}" />
+        <br>
+    
+        <label>RA:</label>
+        <input type="text" th:field="*{raAluno}" />
+        <br>
+    
+
+        <label>CPF:</label>
+        <input type="text" th:field="*{cpfAluno}" />
         <br/>
         <input type="submit" value="Salvar"/>
-    </form>
-
     
+
+    </form>
 
 </body>
 </html>
