@@ -2,6 +2,7 @@ package br.com.etecfer.etecfer.Service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,4 +26,13 @@ public class AlunoService {
         return alunoReposity.findAll();
     }
     
+    //metodo para excluir um aluno pelo id
+    public void deleteById(Integer id){
+        alunoReposity.deleteById(id);
+    }
+
+    //metodo para buscar o aluno pelo id
+    public Aluno findById(Integer id){
+        return alunoReposity.findById(id).orElse(null);
+    }
 }
