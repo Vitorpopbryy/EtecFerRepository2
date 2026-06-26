@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de curso</title>
+</head>
+<body>
+
+    <h1 style="text-align: center;"> Cadastrar curso </h1>
+
+    <form th:action="@{/cursos/salvar}" method="post" th:object="${curso}">
+
+        <input type="hidden" th:field="*{idCurso}" />
+        <br>
+
+        <label>Nome:</label>
+        <input type="text" th:field="*{nomeCurso}" />
+        <br>
+
+        <label>periodo:</label>
+        <input type="text" th:field="*{periodoCurso}" />
+        <br>
+    
+        <label>carga horaria:</label>
+        <input type="text" th:field="*{chCurso}" />
+        <br>
+
+        <input type="submit" value="Salvar"/>
+    
+
+    </form>
+
+</body>
+</html>
