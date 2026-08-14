@@ -29,6 +29,14 @@
         <input type="text" th:field="*{graduacaoProfessor}">
         <br />
         
+        <label for="idDisciplina">Disciplina:</label>
+        <select th:field="*{disciplina}" >
+             <option value="" disabled selected>selcione um disciplina</option>
+             <option th:each="disciplina : ${disciplinas}"
+                     th:text="${disciplina.nomeDisciplina}"
+                     th:value="${disciplina.idDisciplina}"></option>
+        </select>
+     
         <input type="submit" value="Salvar" />
     </form>
     

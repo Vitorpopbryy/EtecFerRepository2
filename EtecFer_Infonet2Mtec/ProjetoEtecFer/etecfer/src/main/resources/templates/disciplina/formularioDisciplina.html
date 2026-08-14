@@ -25,6 +25,23 @@
         <input type="text" th:field="*{chDisciplina}">
         <br />
         
+        <label for="idCurso">Curso:</label>
+        <select th:field="*{curso}" >
+             <option value="" disabled selected>selcione um curso</option>
+             <option th:each="curso : ${cursos}"
+                     th:text="${curso.nomeCurso}"
+                     th:value="${curso.idCurso}"></option>
+        </select>
+     
+
+      <label for="idProfessor">Professores:</label>
+        <select th:field="*{professor}" >
+             <option value="" disabled selected>selcione um Professor</option>
+             <option th:each="professor : ${professores}"
+                     th:text="${professor.nomeProfessor}"
+                     th:value="${professor.idProfessor}"></option>
+        </select>
+      <br><br>
         <input type="submit" value="Salvar" />
     </form>
     

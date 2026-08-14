@@ -22,6 +22,7 @@
             <td th:text="${disciplina.nomeDisciplina}">*</td>
             <td th:text="${disciplina.siglaDisciplina}">*</td>
             <td th:text="${disciplina.chDisciplina}">*</td>
+            <td th:text="${aluno.curso.nomeCurso}">*</td>
             <td>
                 <a th:href="@{/disciplinas/editar/{id}(id=${disciplina.idDisciplina})}">Editar</a>
                 <a th:href="@{/disciplinas/excluir/{id}(id=${disciplina.idDisciplina})}">Excluir</a>

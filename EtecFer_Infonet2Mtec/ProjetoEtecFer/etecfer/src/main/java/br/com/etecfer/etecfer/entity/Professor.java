@@ -5,6 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,4 +36,8 @@ public class Professor {
 
     @Column(nullable = false, length = 40)
     private String graduacaoProfessor;
+
+        @OneToMany
+    @JoinColumn(name = "idDisciplina_fk")
+    private Disciplina disciplina;
 }
