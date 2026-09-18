@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 
 
@@ -35,8 +36,24 @@ public class AlunoController {
 
     //Método para salvar um aluno
     @PostMapping("/salvar")
-    public String salvar(Aluno  aluno) {
-        
+    public String salvar(@ModelAttribute Aluno  aluno,
+        @RequestParam("foto") MultipartFile foto) {
+        try {
+            if (!foto.isEmpty()) {
+                aluno.setFotoAluno(foto.getBytes());
+                aluno.setTipoFoto(foto.getContentType());
+            } else if (aluno.getIdAluno() != null) {
+                Aluno alunoExistente = alunoService.findById(aluno.getIdAluno());
+                if (alunoExistente != null) {
+                    aluno.setFotoAluno(alunoExistente.getFotoAluno());
+                    aluno.setTipoFoto(alunoExistente.getTipoFoto());
+                }
+            }
+        } catch (Exception e) {
+            // Log or handle exception as needed
+            e.printStackTrace();
+        }
+
         alunoService.save(aluno);
         return "redirect:/alunos/listar";
     }
